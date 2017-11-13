@@ -96,21 +96,31 @@ span.psw {
     .nav-link{
         background-color: red;
     }
+    
+    
       </style>
   </head>
+    
   <body>
-      <div class="container">
+      <div class="container-fluid" >
           
-        <div class="card">
-            <div class="card-header">
+        <div class="card" style="border:none;">
+            <div class="card-header" style="background-image: url('img/icon.jpg'); margin-top:2%;">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <h3>Acution Shop</h3>
-                    </div>
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-2">
-                        <ul class="nav nav-tabs card-header-tabs">
+                    <div class="col-sm-6">
+                         <div class="w3-container" >
                     
+                <img src="img/auction1.jpg" class="w3-circle" alt="Norway" style="width:30%;margin-top:2%;"><h2>Acution Shop</h2>
+                    </div>  
+                </div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <ul class="nav nav-tabs card-header-tabs">
+                   
+                    <li class="nav-item">
+                    <a class="nav-link active" href="sell/sellFront.php" style="margin-top:4%; border:0px">Sell Here</a>
+                  </li>
+                            
                   <li class="nav-item">
                     <a class="nav-link active" href="#" onclick="document.getElementById('id01').style.display='block'" style="margin-top:4%; border:0px">Signup</a>
                   </li>
@@ -122,19 +132,62 @@ span.psw {
                 </div>
                
             </div>
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">.</p>
-                
+           </div>
+        </div>
+             
+ </div>
+      <h3 style="background-color:red; color:white; text-align:center; margin-top:1%;"> BUY NOW OR CRY LATER!!! CHOICE IS YOURS!!!</h3>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4" style="background-color:#f5f5f0;margin-top:2%;height:380px;">
+                <div class="w3-container">
+                 
+                 <a href="../auctioningShop/login/userLogin.php?name=house"><img src="img/house1.jpg" class="w3-circle" alt="Norway" style="width:100%;margin-top:5%;"></a> 
+                    </div>
               </div>
+              <div class="col-xl-4"  style="background-color:#f5f5f0;margin-top:2%;height:380px;">
+                <div class="w3-container" >
+                 
+                 <a href="../auctioningShop/login/userLogin.php?name=electronic"><img src="img/electronics.jpg" class="w3-circle" alt="Norway" style="width:100%;margin-top:6%;"></a> 
+                    </div>
+              </div>
+              <div class="col-xl-4"  style="background-color:#f5f5f0;margin-top:2%; height:380px;">
+                <div class="w3-container" >
+                   
+                 <a href="../auctioningShop/login/userLogin.php?name=tool"><img src="img/tools.png" class="w3-circle" alt="Norway" style="width:100%;margin-top:4%;"></a> 
+                    </div>
+              </div>
+      </div>
     </div>
-  </div>
-</div>  
+     
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4" style="background-color:#f5f5f0;margin-top:2%;height:380px;">
+                <div class="w3-container">
+                 
+                 <a href="../auctioningShop/login/userLogin.php?name=furniture"><img src="img/furniture.jpg" class="w3-circle" alt="Norway" style="width:100%;margin-top:5%;"></a> 
+                    </div>
+              </div>
+              <div class="col-xl-4"  style="background-color:#f5f5f0;margin-top:2%;height:380px;">
+                <div class="w3-container" >
+                 
+                 <a href="../auctioningShop/login/userLogin.php?name=vehicle"><img src="img/buy_car.jpg" class="w3-circle" alt="Norway" style="width:100%;margin-top:6%;"></a> 
+                    </div>
+              </div>
+              <div class="col-xl-4"  style="background-color:#f5f5f0;margin-top:2%; height:380px;">
+                <div class="w3-container" >
+                   
+                 <a href="../auctioningShop/login/userLogin.php?name=tool"><img src="img/tools.png" class="w3-circle" alt="Norway" style="width:100%;margin-top:4%;"></a> 
+                    </div>
+              </div>
+      </div>
+    </div>
+
       
       <!-- for user registration -->
-      <div id="id01" class="modal">
+<div id="id01" class="modal">
   
-  <form class="modal-content animate" action="user/userRegistration.php" method="POST">
+  <form class="modal-content animate" action="db/userRegistration.php" method="POST">
     <div class="container">
       <h3>User Registration</h3> 
                   <div class="form-group">

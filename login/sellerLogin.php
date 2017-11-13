@@ -1,58 +1,43 @@
 <?php
-if(isset($_POST["submit"]))
+
+if(isset($_POST['login']))
 {
-    $user_id=$_POST['userName'];
-    $user_password=$_POST['userPassword'];
+    $data_email=$_POST['seller_name'];
+    $data_password=$_POST['seller_password'];
     
-    require ("../db/connection.php");
+   //echo $data_email;
+   // echo $data_password;
     
-    $sql="SELECT * FROM user WHERE user_email='$user_id'";
+    require_once('../db/connection.php');
+    
+    $sql="SELECT * FROM seller WHERE seller_email='$data_email';";
+    
     $result=$conn->query($sql);
-    
     $row=$result->fetch_assoc();
-    $password=$row['user_password'];
-    $id=$row['user_id'];
-    $fname=$row['user_fname'];
-    $lname=$row['user_lname'];
-   // echo $password;
     
-    if($password===$user_password)
+    $password=$row['seller_password'];
+    $id=$row['seller_id'];
+    $name=$row['seller_name'];
+    //echo $password;
+    if($data_password===$password)
     {
         session_start();
-        $_SESSION['user_id']=$id;
-        $_SESSION['user_fname']=$fname;
-        $_SESSION['user_lname']=$lname;
-        if(isset($_SESSION['category']))
-        {
-            $name=$_SESSION['category'];
-             header('Location:../item/showUserItem.php?name='.$name.'');
-            exit();
-        }
-        else
-        {
-             header('Location:../user/userProfile.php');
-            exit();
-        }
-       
-        //echo "welcome";
+        $_SESSION['seller_id']=$id;
+        $_SESSION['seller_name']=$name;
+        header("Location:../sell/sellerProfile.php");
+        exit();
+       // echo "welcome";
     }
     else
     {
         echo "<script> alert('Wrong user name or Password try again');
-                        window.location.href='../login/userLogin.php';</script>";
+                        window.location.href='../login/sellerLogin.php';</script>";
         exit();
     }
-        
-    
 }
-else if(isset($_GET['name']))
-{
-    session_start();
-    $name=$_GET['name'];
-    //echo $name;
-    $_SESSION['category']=$name;
-}
+
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -117,21 +102,21 @@ span.psw {
   <body>
       <div class="container-fluid" >
           
-        <form class="modal-content animate" action="../login/userLogin.php" method="POST">
+        <form class="modal-content animate" action="../login/sellerLogin.php" method="POST">
     <div class="container">
-      <h3>User Login</h3> 
+      <h3>Seller Login</h3> 
                   <div class="form-group">
                       <div class="form-group">
-                    <label for="userName">User Name/ Email</label>
-                    <input type="text" class="form-control" id="userName" name="userName" placeholder="User Name" required>
+                    <label for="sellerName">User Name/ Email</label>
+                    <input type="text" class="form-control" id="sellerName" name="seller_name" placeholder="User Name" required>
                   </div>
                       <div class="form-group">
-                    <label for="userPassword">Password</label>
-                    <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required>
+                    <label for="sellerPassword">Password</label>
+                    <input type="password" class="form-control" id="seller_password" name="seller_password" placeholder="Password" required>
                   </div>
                   
                  
-                <button type="submit" name="submit">LogIn</button>
+                <button type="submit" name="login">LogIn</button>
             
     </div>
             </div> 
@@ -147,3 +132,9 @@ span.psw {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
+
+      
